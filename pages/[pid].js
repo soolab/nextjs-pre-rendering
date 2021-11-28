@@ -73,6 +73,11 @@ export async function getStaticPaths() {
     // 예를 들면은 p1의 product는 매우 자주 방문되어서 미리 패칭해놓으면은 좋지만,
     // p2, p3는 그닥 많이 방문하지 않기떄문에 미리 패칭해올 필요가 없다고 생각해보자.
     // 그럴떄 이 fallback을 true로 사용하고 원하는 것만 미리 패칭하도록 만들면 된다.
+
+    // fallback: 'block'을 하게 된다면은
+    // if(!loadedProduct) 부분을 제거해도 된다.
+    // nextjs에서 알아서 기다려준다음에 로딩하게 만든다.
+    // 이건 상황에 따라서 다르게 처리할 수 있을 것 같다.
     fallback: true,
   };
 }
