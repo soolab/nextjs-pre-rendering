@@ -1,13 +1,13 @@
 {
     "products": [
         { 
-        "id": "p1", "title": "Project 1"
+        "id": "p1", "title": "Project 1", "description": "Description 1"
         },
         { 
-        "id": "p2", "title": "Project 2"
+        "id": "p2", "title": "Project 2", "description": "Description 2"
         },
         { 
-        "id": "p3", "title": "Project 3"
+        "id": "p3", "title": "Project 3", "descrpition": "Description 3"
         }
     ]
 }
