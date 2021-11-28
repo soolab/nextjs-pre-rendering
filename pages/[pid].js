@@ -42,6 +42,13 @@ export async function getStaticProps(context) {
 
   const product = data.products.find((product) => product.id == productId);
 
+  // fallback을 true로 한다고 해도
+  // 해당 데이터를 찾을 수 없을떄는 notFound: true
+  // 를 리턴해서 적절하게 에러 핸들링을 하는 것이라고 보면 된다.
+  if (!product) {
+    return { notFound: true };
+  }
+
   return {
     props: {
       loadedProduct: product,
