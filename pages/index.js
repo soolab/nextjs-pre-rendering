@@ -24,6 +24,7 @@ function HomePage(props) {
 // 이 부분은 나중에 참고하도록 하자.
 
 export async function getStaticProps() {
+  console.log("Re generating...");
   const filePath = path.join(process.cwd(), "data", "dummy-backend.json");
   const jsonData = await fs.readFile(filePath);
   const data = JSON.parse(jsonData);
@@ -32,6 +33,12 @@ export async function getStaticProps() {
     props: {
       products: data.products,
     },
+    // 특정한 옵션을 주지 않는다면은
+    // build 할 때 딱 한 번만 해당 props가 결정이 나게 된다.
+    // 하지만 이렇게 되면은 매번 빌드할 수 도 없고, 한계가 있기 마련이다.
+    // 하지만 아래의 옵션을 걸어주면은 몇 초 마다 해당 props를 업데이트 해주기 떄문에
+    // 한계를 극복할 수 있다는 것이다.
+    revalidate: 10,
   };
 }
 
